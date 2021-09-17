@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import CourseRegistrationForm
+from .models import Course
 
 def register_course(request):
     if request.method=="POST":
@@ -12,3 +13,6 @@ def register_course(request):
          form = CourseRegistrationForm()
     return render(request,"register_course.html",{"form": form})
     
+def course_list(request):
+    courses = Course.objects.all()
+    return render(request,"course_list.html",{"courses": courses})

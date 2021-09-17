@@ -1,3 +1,4 @@
+import django_heroku
 """
 Django settings for schoolSystem project.
 
@@ -12,7 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
-from django.db import models
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,7 +43,12 @@ INSTALLED_APPS = [
     'student',
     'Trainer',
     'Course',
-    'Calendar'
+    'Calendar',
+    'core',
+    'rest_framework',
+    'api',
+    
+   
 
 ]
 
@@ -69,9 +75,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
             ],
         },
     },
+    
 ]
 
 WSGI_APPLICATION = 'schoolSystem.wsgi.application'
@@ -136,7 +144,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 MEDIA_ROOT= os.path.join(BASE_DIR, 'static/images')
+django_heroku.settings(locals())
 
 
-# profile=models.ImageField(upload_to= "images/")
-# profile=models.ImageField(upload_to = "images")

@@ -7,6 +7,8 @@ class Course(models.Model):
     course_syllabus= models.FileField(null= True, blank=True, upload_to="images/")
     course_trainer= models.CharField(max_length=30)
     course_duration= models.CharField(max_length=30)
-    course_projects = models.FileField(null= True, blank=True, upload_to="images/")
+    course_projects = models.CharField(max_length=100)
    
     
+    def __str__(self):
+        return self.course_name

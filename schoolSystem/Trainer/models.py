@@ -22,5 +22,6 @@ class Trainer(models.Model):
     proffession= models.CharField(max_length=32)
     salary = models.PositiveBigIntegerField()
   
-   
+    def __str__(self):
+        return self.first_name
     

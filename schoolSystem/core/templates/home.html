@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+    <title>Home</title>
+</head>
+<body>
+    <style>
+    
+.navbar{
+    position: fixed;
+    width: 100%;
+    /* z-index: 999; */
+    /* padding: 30px 0; */
+    /* font-family: 'Nunito Sans', sans-serif; */
+    font-family: 'Ubuntu', sans-serif;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+.navbar:hover{
+    color: purple;
+}
+.navbar.sticky{
+    /* padding: 15px 0; */
+    background: #fc6A03;
+}
+.navbar .max-width{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar .logo a{
+    color: #fff;
+    font-size: 35px;
+    font-weight: 600;
+}
+.navbar .logo a span{
+    color: purple ;
+    transition: all 0.3s ease;
+}
+
+a{
+    list-style: none;
+    text-decoration: none;  
+    
+ }
+ a:hover{
+     color: purple;
+ }
+ .menu-btn{
+     color: purple;
+     padding-left: 50px;
+     margin-left: 100px;
+     font-size: 20px;
+     /* background-color: white; */
+ }
+ #black{
+     color: black;
+ }
+ img{
+     margin-top:50px;
+    
+ }
+
+    </style>
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="#"><span>Akira</span><span id="black">Chix.</span></a></div>
+            <ul class="menu">
+                <a href="{% url 'register_calendar'%}" class="menu-btn">Calendar</a>
+                <a href="{% url 'register_course'%}"  class="menu-btn">Course</a>
+                <a href="{% url 'register_student'%}"  class="menu-btn">Student</a>
+                <a href="{% url 'register_trainer'%}"  class="menu-btn">Trainer</a>
+
+               
+            </ul>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    
+  
+    <!-- <h3>Students:{{students}}</h3>
+    <h3>Trainers:{{trainers}}</h3>
+    <h3>Courses:{{courses}}</h3>
+    <h3>Calendar:{{calendar}}</h3> -->
+    
+    <!-- <li><a href="{% url 'student_list'  %}"></a></li> -->
+    <img src="https://pbs.twimg.com/media/EQEtxW4XsAAi_8t.jpg" width="1300px">
+</body>
+</html>
