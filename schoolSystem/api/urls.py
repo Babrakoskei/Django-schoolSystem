@@ -1,18 +1,19 @@
 from django.db import router
-from django.urls import path,include
-from rest_framework import routers,urlpatterns
-from .views import StudentViewSet
+from django.urls import path, include
+from rest_framework import routers, urlpatterns
+from .views import EventViewSet, StudentViewSet
 from .views import TrainerViewSet
 from .views import CourseViewSet
-from .views import CalendarViewSet
-router=routers.DefaultRouter()
-router.register("student/",StudentViewSet)
-router.register("Trainer/",TrainerViewSet)
-router.register("Course/",CourseViewSet)
-router.register("Calendar/",CalendarViewSet)
-urlpatterns=[
-    path("",include(router.urls)),
-    path("",include(router.urls)),
-    path("",include(router.urls)),
-    path("",include(router.urls))
+
+router = routers.DefaultRouter()
+router.register("students/", StudentViewSet)
+router.register("trainers/", TrainerViewSet)
+router.register("courses/", CourseViewSet)
+router.register("events/", EventViewSet)
+
+urlpatterns = [
+    path("", include(router.urls)),
+    path("", include(router.urls)),
+    path("", include(router.urls)),
+    path("", include(router.urls)),
 ]

@@ -1,31 +1,30 @@
-# from schoolSystem.Calendar.models import Calendar
-# from schoolSystem.Course.models import Course
-# from schoolSystem.Trainer.models import Trainer
-# from schoolSystem.api import models
+from django.db import models
 from django.db.models import fields
-from rest_framework import  serializers
+from rest_framework import serializers
 from student.models import Student
-from Trainer.models import Trainer
-from Course.models import Course
-from Calendar.models import Calendar
-class  StudentSerializer(serializers.ModelSerializer):
+from trainer.models import Trainer
+from courses.models import Courses
+from events.models import Events
+
+class StudentSerializer(serializers.ModelSerializer):
     class Meta:
-        model =Student
-        fields =("first_name","last_name","age",)
+        model = Student
+        fields = ("first_name", "last_name", "age")
+
 
 class TrainerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Trainer
-        fields= ("first_name","last_name","salary",)
+        fields = ("first_name", "last_name", "age")
+
 
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
-        model= Course
-        fields= ("course_name","course_code","course_trainer",)
+        model = Courses
+        fields = ("course_name", "course_id", "course_trainer")
 
-class CalendarSerializer(serializers.ModelSerializer):
+
+class EventSerializer(serializers.ModelSerializer):
     class Meta:
-        model= Calendar
-        fields= ("event_name","event_month","event_date",)
-
- 
+        model = Events
+        fields = ("event_name", "event_location", "start_time")

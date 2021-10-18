@@ -1,13 +1,25 @@
-from django.shortcuts import render
+
+from datetime import date
+from typing import Counter
 from student.models import Student
-from Course.models import Course
-from Trainer.models import Trainer
-from Calendar.models import Calendar
+from django.shortcuts import redirect, render
+from student.models import Student
+from trainer.models import Trainer
+from courses.models import Courses
+
+# Create your views here.
 
 def home(request):
-    students= Student.objects.count()
-    courses = Course.objects.count()
-    trainers = Trainer.objects.count()
-    calendar = Calendar.objects.count()
-    data = {"students": students,"courses":courses,"trainers":trainers,"calendar": calendar}
-    return render(request,"home.html",data)
+    if request.user.is_authenticated:
+        student=Student.objects.count()
+        trainer=Trainer.objects.count()
+        courses=Courses.objects.count()
+    
+    
+
+        data = {"student": student, "trainer": trainer, "course": courses}
+        return render(request, "home_page.htm", data)
+    else:
+        return redirect("auth_login")
+
+
